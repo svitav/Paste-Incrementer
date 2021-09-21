@@ -1,8 +1,10 @@
 {
   "name": "paste-incrementer",
+  	"publisher": "svitav",
+	"repository": "https://github.com/svitav/Paste-Incrementer.git",
 	"displayName": "Paste Incrementer",
 	"description": "",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"engines": {
 		"vscode": "^1.60.0"
 	},
