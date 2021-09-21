@@ -20,13 +20,10 @@ function activate(context) {
 	// The commandId parameter must match the command field in package.json
 
 	let paste = vscode.commands.registerTextEditorCommand('paste-incrementer.pasteWithIncrement', function (editor, edit, tags) {
-		// The code you place here will be executed every time your command is executed
-		//var text;
 		var promise = vscode.env.clipboard.readText().then(text => {
 			var match = text.match(/\d+/);
 
 			if(match != null){
-				//console.log(match);
 				var number = parseInt(match[0])+1;
 				text = text.replace(/\d+/, number.toString());
 			}
@@ -37,21 +34,9 @@ function activate(context) {
 			vscode.env.clipboard.writeText(text);
 			return vscode.workspace.applyEdit(edit);	
 		});
-
-		//console.log(promise);
-		//this.edit.replace(editor.selection.active, text);
-		// Display a message box to the user
 	});
 
-
-	let disposable = vscode.commands.registerCommand('paste-incrementer.helloWorld', function () {
-		// The code you place here will be executed every time your command is executed
-
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from Paste Incrementer!');
-	});
-
-	context.subscriptions.push(disposable);
+	context.subscriptions.push(paste);
 }
 
 // this method is called when your extension is deactivated

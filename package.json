@@ -12,16 +12,11 @@
 		"Other"
 	],
 	"activationEvents": [
-        "onCommand:paste-incrementer.helloWorld",
 		"onCommand:paste-incrementer.pasteWithIncrement"
 	],
 	"main": "./extension.js",
 	"contributes": {
 		"commands": [{
-            "command": "paste-incrementer.helloWorld",
-            "title": "Hello World"
-
-		},{
 			"command": "paste-incrementer.pasteWithIncrement",
             "title": "Paste with increment"
 		}],
