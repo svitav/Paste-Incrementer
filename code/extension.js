@@ -23,11 +23,18 @@ function activate(context) {
 		// The code you place here will be executed every time your command is executed
 		//var text;
 		var promise = vscode.env.clipboard.readText().then(text => {
-			var number = parseInt(text.match("\d+")[0]);
-			console.log(number);
-			text.replace("\d+", "asd");
+			var match = text.match(/\d+/);
+
+			if(match != null){
+				//console.log(match);
+				var number = parseInt(match[0])+1;
+				text = text.replace(/\d+/, number.toString());
+			}
 			var edit = new vscode.WorkspaceEdit();
-			edit.insert(editor.document.uri, editor.selection.active, text);
+
+			edit.replace(editor.document.uri, editor.selection, text);
+
+			vscode.env.clipboard.writeText(text);
 			return vscode.workspace.applyEdit(edit);	
 		});
 

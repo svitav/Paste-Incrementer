@@ -22,7 +22,14 @@
 		},{
 			"command": "paste-incrementer.pasteWithIncrement",
             "title": "Paste with increment"
-		}]
+		}],
+		"keybindings":{
+			"command": "paste-incrementer.pasteWithIncrement",
+			"win": "ctrl+alt+v",
+			"mac": "cmd+opt+v",
+			"linux": "ctrl+alt+v",
+			"when": "editorTextFocus"
+		}
 	},
 	"scripts": {
 		"lint": "eslint .",
