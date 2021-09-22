@@ -1,6 +1,5 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
-const { toEditorSettings } = require('typescript');
 const vscode = require('vscode');
 
 // this method is called when your extension is activated
@@ -19,8 +18,8 @@ function activate(context) {
 	// Now provide the implementation of the command with  registerCommand
 	// The commandId parameter must match the command field in package.json
 
-	let paste = vscode.commands.registerTextEditorCommand('paste-incrementer.pasteWithIncrement', function (editor, edit, tags) {
-		var promise = vscode.env.clipboard.readText().then(text => {
+	let paste = vscode.commands.registerTextEditorCommand('paste-incrementer.pasteWithIncrement', function (editor) {
+		vscode.env.clipboard.readText().then(text => {
 			var match = text.match(/\d+/);
 
 			if(match != null){
@@ -28,7 +27,6 @@ function activate(context) {
 				text = text.replace(/\d+/, number.toString());
 			}
 			var edit = new vscode.WorkspaceEdit();
-
 			edit.replace(editor.document.uri, editor.selection, text);
 
 			vscode.env.clipboard.writeText(text);

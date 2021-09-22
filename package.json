@@ -4,7 +4,7 @@
 	"repository": "https://github.com/svitav/Paste-Incrementer.git",
 	"displayName": "Paste Incrementer",
 	"description": "",
-	"version": "0.0.3",
+	"version": "0.0.5",
 	"engines": {
 		"vscode": "^1.60.0"
 	},
@@ -14,7 +14,7 @@
 	"activationEvents": [
 		"onCommand:paste-incrementer.pasteWithIncrement"
 	],
-	"main": "./extension.js",
+	"main": "./code/extension.js",
 	"contributes": {
 		"commands": [{
 			"command": "paste-incrementer.pasteWithIncrement",
